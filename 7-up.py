@@ -29,13 +29,23 @@ while endGame == False:
         print("\n" + str(comNum))
     time.sleep(0.2)
     userNum = input("n: ")
-    if int(userNum) == comNum + 1:
+    if (comNum + 1) % 7 == 0:
+        if userNum == "7-up":
+            print("Correct")
+            comNum += 2
+        else:
+            print("Incorrect - should've said 7-up!")
+            print("\nGame End")
+            break
+    elif (comNum + 1) % 7 != 0:
+        if int(userNum) == comNum + 1:
             print("Correct")
             comNum += 2
     else:
         print("Incorrect - wrong number!")
         print("\nGame End")
         endGame = True
+        time.sleep(0.5)
         print("\nPlay Again?")
         print(">yes\n>no")
         playAgain = input("")
@@ -63,5 +73,3 @@ while endGame == False:
 ##        print("Incorrect - wrong number!")
 ##        print("\nGame End")
 ##        break
-
-    
