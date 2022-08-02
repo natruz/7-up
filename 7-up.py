@@ -16,20 +16,20 @@
 import time
 
 # Variables
-comNum = 1
+comNum = 0
 endGame = False
 repeat = False
 
 print("Start Game\n")
 
 while endGame == False:
-    if comNum % 7 == 0 or str(comNum).__contains__("7") == True:
+    if comNum % 7 == 0 or str(comNum).__contains__("7"):
         print("\n7-up")
     else:
         print("\n" + str(comNum))
     time.sleep(0.2)
     userNum = input("n: ")
-    if (comNum + 1) % 7 == 0:
+    if (comNum + 1) % 7 == 0  or str(comNum + 1).__contains__("7"):
         if userNum == "7-up":
             print("Correct")
             comNum += 2
@@ -38,7 +38,11 @@ while endGame == False:
             print("\nGame End")
             break
     elif (comNum + 1) % 7 != 0:
-        if int(userNum) == comNum + 1:
+        if userNum == "7-up":
+            print("Incorrect - that number is not a multiple of 7/does not contain a seven!")
+            print("\nGame End")
+            break
+        elif int(userNum) == comNum + 1:
             print("Correct")
             comNum += 2
     else:
