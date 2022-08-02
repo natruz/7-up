@@ -16,7 +16,7 @@
 import time
 
 # Variables
-comNum = 0
+comNum = 1
 endGame = False
 repeat = False
 
