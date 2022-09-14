@@ -20,6 +20,10 @@ comNum = 1
 endGame = False
 repeat = False
 
+# Functions
+def gameEnd():
+    print("\nGame End")
+
 print("Start Game\n")
 
 while endGame == False:
@@ -30,17 +34,25 @@ while endGame == False:
     time.sleep(0.2)
     userNum = input("n: ")
     if (comNum + 1) % 7 == 0  or str(comNum + 1).__contains__("7"):
-        if userNum == "7-up":
+        if int(userNum) < comNum or int(userNum) == comNum:
+            print("\nWhY A LowEr/sAMe nUmbER?/??")
+            gameEnd()
+            break
+        elif userNum == "7-up":
             print("Correct")
             comNum += 2
         else:
             print("Incorrect - should've said 7-up!")
-            print("\nGame End")
+            gameEnd()
             break
     elif (comNum + 1) % 7 != 0:
-        if userNum == "7-up":
+        if int(userNum) < comNum or int(userNum) == comNum:
+            print("\nWhY A LowEr/sAMe nUmbER?/??")
+            gameEnd()
+            break
+        elif userNum == "7-up":
             print("Incorrect - that number is not a multiple of 7/does not contain a seven!")
-            print("\nGame End")
+            gameEnd()
             break
         elif int(userNum) == comNum + 1:
             print("Correct")
@@ -61,3 +73,4 @@ while endGame == False:
             repeat = False
             endGame = True
             break
+            
